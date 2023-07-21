@@ -1,8 +1,13 @@
 {
   "name": "@raegen/github-runner",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "private": false,
   "type": "commonjs",
+  "readme": "README.md",
+  "license": "MIT",
+  "repository": {
+    "url": "https://github.com/raegen/github-runner.git"
+  },
   "main": "./dist/lib/index.js",
   "files": [
     "dist"

@@ -21,6 +21,11 @@
             "input": "./lib",
             "glob": "**/*.d.ts",
             "output": "./lib"
+          },
+          {
+            "input": "./",
+            "glob": "README.md",
+            "output": "./"
           }
         ]
       }
