@@ -1,0 +1,30 @@
+{
+  "name": "@raegen/github-runner",
+  "$schema": "node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "lib",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "main": "lib/index.ts",
+        "outputPath": "dist",
+        "tsConfig": "tsconfig.json",
+        "assets": [
+          {
+            "input": "./lib",
+            "glob": "**/!(*.ts)",
+            "output": "./lib"
+          },
+          {
+            "input": "./lib",
+            "glob": "**/*.d.ts",
+            "output": "./lib"
+          }
+        ]
+      }
+    }
+  },
+  "tags": []
+}

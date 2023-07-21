@@ -1,0 +1,21 @@
+{
+  "name": "@raegen/github-runner",
+  "version": "0.0.2",
+  "private": false,
+  "type": "commonjs",
+  "main": "./dist/lib/index.js",
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@actions/cache": "^3.2.1",
+    "chalk": "^4.1.2",
+    "nx-remotecache-custom": "^4.1.0"
+  },
+  "devDependencies": {
+    "@nx/js": "16.5.0",
+    "@types/chalk": "^2.2.0",
+    "nx": "^16.5.0",
+    "typescript": "^5.1.6"
+  }
+}
