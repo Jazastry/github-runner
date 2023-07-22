@@ -3,7 +3,7 @@ import { join } from 'node:path'
 import { restoreCache, saveCache } from '@actions/cache'
 import { RemoteCacheImplementation } from 'nx-remotecache-custom'
 import { bound } from './bound'
-import { cacheDir } from '@nx/devkit'
+import { cacheDir } from 'nx/src/utils/cache-directory'
 
 export class GithubActionsCache implements RemoteCacheImplementation {
     name: 'Github Actions Cache'
