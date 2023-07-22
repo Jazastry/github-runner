@@ -13,6 +13,7 @@
     "dist"
   ],
   "dependencies": {
+    "@nx/devkit": "16.5.0",
     "@actions/cache": "^3.2.1",
     "chalk": "^4.1.2",
     "nx-remotecache-custom": "^4.1.0"
