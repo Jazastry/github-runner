@@ -1,6 +1,6 @@
 {
   "name": "@raegen/github-runner",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "private": false,
   "type": "commonjs",
   "readme": "README.md",
@@ -18,10 +18,10 @@
     "nx-remotecache-custom": "^4.1.0"
   },
   "devDependencies": {
-    "prettier": "^3.0.0",
     "@nx/js": "16.5.0",
     "@types/chalk": "^2.2.0",
     "nx": "^16.5.0",
+    "prettier": "^3.0.0",
     "typescript": "^5.1.6"
   }
 }
