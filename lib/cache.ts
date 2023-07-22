@@ -6,7 +6,7 @@ import { bound } from './bound'
 import { cacheDir } from 'nx/src/utils/cache-directory'
 
 export class GithubActionsCache implements RemoteCacheImplementation {
-    name: 'Github Actions Cache'
+    name = 'Github Actions Cache'
 
     constructor(private cacheDirectory: string = cacheDir) {}
 
