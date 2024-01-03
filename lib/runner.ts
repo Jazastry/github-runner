@@ -2,7 +2,7 @@ import { mkdir } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import { createCustomRunner, initEnv } from 'nx-remotecache-custom'
 import { isFeatureAvailable } from '@actions/cache'
-import { cacheDir } from '@nx/devkit'
+import { cacheDir } from 'nx/src/utils/cache-directory'
 import { createGithubActionsCache } from './cache'
 
 export type TasksRunner = ReturnType<typeof createCustomRunner>
