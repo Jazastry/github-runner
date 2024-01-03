@@ -1,35 +1,28 @@
 import { open, writeFile } from 'node:fs/promises'
-import { join } from 'node:path'
+import { resolve } from 'node:path'
+import { Stream } from 'node:stream'
 import { restoreCache, saveCache } from '@actions/cache'
 import { RemoteCacheImplementation } from 'nx-remotecache-custom'
-import { bound } from './bound'
-import { cacheDir } from 'nx/src/utils/cache-directory'
 
-export class GithubActionsCache implements RemoteCacheImplementation {
-    name = 'Github Actions Cache'
+const PREFIX = 'nx'
 
-    constructor(private cacheDirectory: string = cacheDir) {}
+const prefix = (filename: string) => `${PREFIX}-${filename}`
 
-    @bound()
-    fileExists(filename: string) {
-        return restoreCache([this.cacheDirectory], filename, undefined, {
-            lookupOnly: true,
-        }).then(Boolean)
-    }
+export const createGithubActionsCache = (
+    path: string
+): RemoteCacheImplementation => ({
+    name: 'Github Actions Cache',
 
-    @bound()
-    retrieveFile(filename) {
-        return restoreCache([this.cacheDirectory], filename).then((key) =>
-            open(join(this.cacheDirectory, key)).then((fd) =>
-                fd.createReadStream()
-            )
-        )
-    }
+    fileExists: (filename: string) =>
+        restoreCache([path], prefix(filename)).then(Boolean),
 
-    @bound()
-    storeFile(filename, buffer) {
-        return writeFile(join(this.cacheDirectory, filename), buffer).then(() =>
-            saveCache([this.cacheDirectory], filename)
-        )
-    }
-}
+    retrieveFile: async (filename: string) =>
+        open(resolve(path, prefix(filename))).then((fd) =>
+            fd.createReadStream()
+        ),
+
+    storeFile: async (filename: string, data: Stream) =>
+        writeFile(resolve(path, prefix(filename)), data).then(() =>
+            saveCache([path], prefix(filename))
+        ),
+})
