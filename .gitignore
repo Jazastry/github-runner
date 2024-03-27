@@ -2,4 +2,7 @@
 /.idea/
 /node_modules/
 .npmrc
-yarnrc.yml
+.yarnrc.yml
+.nx
+.yarn/
+.pnp.*

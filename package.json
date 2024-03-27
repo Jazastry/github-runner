@@ -1,27 +1,26 @@
 {
-  "name": "@raegen/github-runner",
-  "version": "0.0.9",
-  "private": false,
-  "type": "commonjs",
-  "readme": "README.md",
-  "license": "MIT",
-  "repository": {
-    "url": "https://github.com/raegen/github-runner.git"
-  },
-  "main": "./dist/lib/index.js",
-  "files": [
-    "dist"
-  ],
-  "dependencies": {
-    "@actions/cache": "^3.2.2",
-    "chalk": "^4.1.2",
-    "nx-remotecache-custom": "^17.0.0"
-  },
-  "devDependencies": {
-    "@nx/js": "16.5.0",
-    "@types/chalk": "^2.2.0",
-    "nx": "^16.5.0",
-    "prettier": "^3.0.0",
-    "typescript": "^5.1.6"
-  }
+    "name": "@raegen/github-runner",
+    "version": "0.2.0",
+    "type": "commonjs",
+    "readme": "README.md",
+    "license": "MIT",
+    "repository": {
+        "url": "https://github.com/raegen/github-runner.git"
+    },
+    "main": "./dist/lib/index.js",
+    "files": [
+        "dist"
+    ],
+    "dependencies": {
+        "@actions/cache": "^3.2.4",
+        "chalk": "^4.1.2",
+        "nx-remotecache-custom": "^18.0.0"
+    },
+    "devDependencies": {
+        "@nx/js": "18.1.3",
+        "@types/chalk": "^2.2.0",
+        "nx": "^18.1.3",
+        "prettier": "^3.2.5",
+        "typescript": "^5.4.3"
+    }
 }

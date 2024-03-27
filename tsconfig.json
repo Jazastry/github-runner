@@ -1,10 +1,11 @@
 {
-  "compilerOptions": {
-    "types": ["node"],
-    "module": "commonjs",
-    "noEmit": false,
-    "declaration": true
-  },
-  "files": [],
-  "include": ["lib/*.ts"]
+    "compilerOptions": {
+        "types": ["node"],
+        "module": "commonjs",
+        "noEmit": false,
+        "declaration": true,
+        "skipLibCheck": true
+    },
+    "files": [],
+    "include": ["lib/*.ts"]
 }
