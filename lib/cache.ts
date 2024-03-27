@@ -8,6 +8,15 @@ const PREFIX = 'nx'
 
 const prefix = (filename: string) => `${PREFIX}-${filename}`
 
+function streamToString(stream: Stream): Promise<Buffer> {
+    const chunks = []
+    return new Promise((resolve, reject) => {
+        stream.on('data', (chunk) => chunks.push(Buffer.from(chunk)))
+        stream.on('error', (err) => reject(err))
+        stream.on('end', () => resolve(Buffer.concat(chunks)))
+    })
+}
+
 export const createGithubActionsCache = (
     path: string
 ): RemoteCacheImplementation => ({
@@ -21,8 +30,10 @@ export const createGithubActionsCache = (
             fd.createReadStream()
         ),
 
-    storeFile: async (filename: string, data: Stream) =>
-        writeFile(resolve(path, prefix(filename)), data).then(() =>
+    storeFile: async (filename: string, data: Stream) => {
+        const d = await streamToString(data)
+        writeFile(resolve(path, prefix(filename)), d).then(() =>
             saveCache([path], prefix(filename))
-        ),
+        )
+    },
 })
